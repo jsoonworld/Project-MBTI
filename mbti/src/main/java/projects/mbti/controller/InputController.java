@@ -34,8 +34,6 @@ public class InputController {
         return "redirect:/";
     }
 
-
-
     @GetMapping("/inputs/NS")
     public String createNsForm(Model model) {
         model.addAttribute("form", new InputNsForm());
