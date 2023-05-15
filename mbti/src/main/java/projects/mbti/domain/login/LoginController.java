@@ -1,4 +1,4 @@
-package projects.mbti.login;
+package projects.mbti.domain.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
-    @RequestMapping("/")
+    // @RequestMapping("/")
     public String hello(Model model) {
         model.addAttribute("data", "login!!!");
-        return "loginApi/google";
+        return "loginApi/kakao";
 
     }
 }

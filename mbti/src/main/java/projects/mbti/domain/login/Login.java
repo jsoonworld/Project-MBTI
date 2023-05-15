@@ -1,4 +1,4 @@
-package projects.mbti.login;
+package projects.mbti.domain.login;
 
 import lombok.Getter;
 import lombok.Setter;
