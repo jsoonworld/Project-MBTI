@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import projects.mbti.domain.User;
 
 import javax.persistence.EntityManager;
-import java.lang.reflect.Member;
 import java.util.List;
 
 @Repository
@@ -29,5 +28,4 @@ public class UserRepository {
                 .setParameter("studentId", id)
                 .getResultList();
     }
-
 }

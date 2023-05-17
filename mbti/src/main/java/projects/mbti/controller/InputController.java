@@ -27,11 +27,8 @@ public class InputController {
 
     @PostMapping("/inputs/EI")
     public String create(InputFtForm form) {
-        Ei ei = new Ei();
-        ei.setTendencyKind(form.getTendency());
 
-        inputService.saveItem(ei);
-        return "redirect:/";
+        return "redirect:/members";
     }
 
     @GetMapping("/inputs/NS")

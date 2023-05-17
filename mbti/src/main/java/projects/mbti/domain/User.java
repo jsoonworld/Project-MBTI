@@ -2,6 +2,7 @@ package projects.mbti.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import projects.mbti.domain.statistics.StatisticsBarGraph;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,16 +18,16 @@ public class User {
     private Long id;
 
     private Long studentId;
-    private String Major;
+    private String major;
     private int age;
     private String gender;
-    private Long loginNaver;
-    private Long loginKakao;
-    private Long loginGoogle;
+    private Long loginByNaver;
+    private Long loginByKakao;
+    private Long loginByGoogle;
 
 
     @OneToMany(mappedBy = "user")
-    private List<StaticsGraph> staticsGraph = new ArrayList<>(); // 컬렉션은 필드에서 초기화
+    private List<StatisticsBarGraph> staticsGraph = new ArrayList<>(); // 컬렉션은 필드에서 초기화
 
 
 }

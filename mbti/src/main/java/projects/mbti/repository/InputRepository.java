@@ -25,10 +25,7 @@ public class InputRepository {
         return em.find(Input.class, id);
     }
 
-    public List<Input> findAll() {
-        return em.createQuery("select  i from Input i", Input.class)
-                .getResultList();
-    }
+
 
 
 }

@@ -21,10 +21,6 @@ public class InputService {
         inputRepository.save(item);
     }
 
-    public List<Input> findItems() {
-        return inputRepository.findAll();
-    }
-
     public Input findOne(Long inputId) {
         return inputRepository.findOne(inputId);
     }

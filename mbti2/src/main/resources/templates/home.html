@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>컴퓨터공학과 MBTI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+    <div class="jumbotron">
+        <h1>MBTI</h1>
+<!--        <p class="lead">회원 기능</p>-->
+        <p>
+            <a class="btn btn-lg btn-secondary" href="/users/createUserForm">내 MBTI 입력하러 가기!</a>
+            <a class="btn btn-lg btn-secondary" href="/users/createUserForm">내 MBTI 테스트하러 가기!</a>
+        </p>
+    </div>
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>
