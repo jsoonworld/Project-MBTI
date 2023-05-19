@@ -24,13 +24,13 @@ public class Input {
     @Column(name = "input_id")
     private Long id;
 
-    @ManyToOne(fetch = LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
     public void setUser(User user) {
         this.user = user;
-        user.getInputs().add(this);
+        user.setInput(this);
     }
 
     @Column(name = "EI")
@@ -51,10 +51,5 @@ public class Input {
     public void setMbti(String EI, String NS, String FT, String JP) {
         this.fullOfMbti = EI + NS + FT + JP;
     }
-
-
-
-
-
 
 }

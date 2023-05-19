@@ -1,6 +1,7 @@
 package projects.mbti.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import projects.mbti.service.InputService;
 
 import javax.validation.Valid;
 @Controller
+@Slf4j
 @RequiredArgsConstructor
 public class InputController {
 

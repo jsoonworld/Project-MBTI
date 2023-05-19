@@ -2,11 +2,13 @@ package projects.mbti.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import projects.mbti.domain.User;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 @Repository
+@Transactional
 @RequiredArgsConstructor
 public class UserRepository {
 

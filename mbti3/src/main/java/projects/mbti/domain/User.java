@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue
@@ -24,10 +25,10 @@ public class User {
     private String major;
 
     @Column(name = "age")
-    private Long age;
+    private Long age = null;
 
     @Column(name = "gender")
-    private String gender;
+    private String gender = null;
 
     @Column(name = "login_by_naver")
     private String loginByNaver;
@@ -38,7 +39,7 @@ public class User {
     @Column(name = "login_by_google")
     private String loginByGoogle;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private List<Input> inputs = new ArrayList<>();
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Input input;
+
 }

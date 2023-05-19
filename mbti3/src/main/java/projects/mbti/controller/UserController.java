@@ -1,6 +1,7 @@
 package projects.mbti.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +12,9 @@ import projects.mbti.service.UserService;
 
 import javax.validation.Valid;
 
+
 @Controller
+@Slf4j
 @RequiredArgsConstructor
 public class UserController {
 
@@ -24,17 +27,20 @@ public class UserController {
     }
 
     @PostMapping("/users/createUserForm")
-    public String create(@Valid UserForm form, BindingResult result){
-
-        if(result.hasErrors()){
+    public String create(@Valid UserForm form, BindingResult result) {
+        if (result.hasErrors()) {
             return "/users/createUserForm";
         }
 
-        User user = new User();
-        user.setStudentId(form.getStudentId());
-        user.setMajor(form.getMajor());
+        User user = form.toUser(); // UserForm 객체를 User 객체로 변환하여 사용
 
-        userService.login(user);
+        try {
+            userService.createUser(user);
+        } catch (IllegalStateException e) {
+            result.rejectValue("studentId", "duplicate", "중복된 사용자입니다.");
+            return "/users/createUserForm";
+        }
+
         return "redirect:/input/createInputEIForm";
     }
 }
