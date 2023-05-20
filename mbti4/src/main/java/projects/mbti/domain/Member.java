@@ -14,7 +14,7 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
-    private String studentId;
+    private Long studentId;
     private String major;
 
     private String loginInfo;
