@@ -16,23 +16,31 @@ public class InputService {
     private final InputRepository inputRepository;
 
     @Transactional
-    public void saveInput(Input input) {
+    public Long save(Input input) {
         inputRepository.save(input);
+        return input.getId();
     }
 
     public Input findOne(Long itemId) {
         return inputRepository.findOne(itemId);
     }
 
-    public List<Input> findResultMbti(String resultMbti) {
+    public List<Input> findByResultMbti(String resultMbti) {
         return inputRepository.findByMbtiResult(resultMbti);
     }
 
-    
-
-
-
-
+    public List<Input> findByMbtiSplitedEI(String EI) {
+        return inputRepository.findByMbtiSplitedEI(EI);
+    }
+    public List<Input> findByMbtiSplitedNS(String NS) {
+        return inputRepository.findByMbtiSplitedNS(NS);
+    }
+    public List<Input> findByMbtiplitedFT(String FT) {
+        return inputRepository.findByMbtiSplitedFT(FT);
+    }
+    public List<Input> findByMbtiSplitedJP(String JP) {
+        return inputRepository.findByMbtiSplitedJP(JP);
+    }
 
 
 }

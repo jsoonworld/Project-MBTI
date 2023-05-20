@@ -15,13 +15,8 @@ public class InputRepository {
 
     private final EntityManager em;
 
-    public void save(Input input) {
-        if (input.getId() == null) {
-            em.persist(input);
-        } else {
-            em.merge(input);
-        }
-    }
+    public void save(Input input) {em.persist(input);}
+
 
     public Input findOne(Long id) {
         return em.find(Input.class, id);
@@ -62,9 +57,6 @@ public class InputRepository {
                 .setParameter("mbtiResult", mbtiResult)
                 .getResultList();
     }
-
-
-
 
 
 }

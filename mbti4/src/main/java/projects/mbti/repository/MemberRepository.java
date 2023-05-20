@@ -2,6 +2,7 @@ package projects.mbti.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import projects.mbti.domain.Input;
 import projects.mbti.domain.Member;
 
 import javax.persistence.EntityManager;
@@ -13,7 +14,13 @@ public class MemberRepository {
 
     private final EntityManager em;
 
-    public void save(Member member) {em.persist(member);}
+    public void save(Member member) {
+        if (member.getId() == null) {
+            em.persist(member);
+        } else {
+            em.merge(member);
+        }
+    }
 
     public Member findOne(Long id) {
         return em.find(Member.class, id);

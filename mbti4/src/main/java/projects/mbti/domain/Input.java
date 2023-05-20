@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Getter
@@ -12,8 +14,12 @@ import javax.persistence.*;
 public class Input {
     @Id
     @GeneratedValue
-    @Column(name = "item_id")
+    @Column(name = "input_id")
     private Long id;
+
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     private String EI;
 

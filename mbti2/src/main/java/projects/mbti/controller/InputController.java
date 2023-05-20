@@ -26,8 +26,6 @@ public class InputController {
         return "users/createUserForm";
     }
 
-
-
     @GetMapping("/input/EI")
     public String createEIForm(Model model){
         model.addAttribute("inputForm", new InputForm());
