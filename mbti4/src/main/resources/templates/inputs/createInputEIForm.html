@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header">
-  <title>내 MBTI 선택</title>
+  <title>자신의 MBTI 선택</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,10 +9,16 @@
   <div th:replace="fragments/bodyHeader :: bodyHeader" />
   <div class="jumbotron">
     <h1>자신의 MBTI를 선택하세요!</h1>
+    <form role="form" action="/inputs/createInputEIForm" method="post" th:object="${inputForm}">
+      <input type="hidden" th:field="*{NS}" value=""/>
+      <input type="hidden" th:field="*{FT}" value=""/>
+      <input type="hidden" th:field="*{JP}" value=""/>
+      <input type="hidden" th:field="*{mbtiResult}" value=""/>
       <p>
-        <a class="btn btn-lg btn-secondary" href="/input/EI?value=E" name="ei">E</a>
-        <a class="btn btn-lg btn-secondary" href="/input/EI?value=I" name="ei">I</a>
+        <button type="submit" class="btn btn-lg btn-secondary" name="EI" value="E">E</button>
+        <button type="submit" class="btn btn-lg btn-secondary" name="EI" value="I">I</button>
       </p>
+    </form>
   </div>
   <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->

@@ -10,9 +10,13 @@
   <div class="jumbotron">
     <h1>자신의 MBTI를 선택하세요!</h1>
     <form role="form" action="/inputs/createInputEIForm" method="post" th:object="${inputForm}">
+      <input type="hidden" th:field="*{NS}" value=""/>
+      <input type="hidden" th:field="*{FT}" value=""/>
+      <input type="hidden" th:field="*{JP}" value=""/>
+      <input type="hidden" th:field="*{mbtiResult}" value=""/>
       <p>
-        <button type="submit" class="btn btn-lg btn-secondary" name="NS" value="N">N</button>
-        <button type="submit" class="btn btn-lg btn-secondary" name="NS" value="S">S</button>
+        <button type="submit" class="btn btn-lg btn-secondary" name="JP" value="J">J</button>
+        <button type="submit" class="btn btn-lg btn-secondary" name="JP" value="P">P</button>
       </p>
     </form>
   </div>

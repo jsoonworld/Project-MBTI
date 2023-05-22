@@ -2,6 +2,7 @@ package projects.mbti.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import projects.mbti.domain.Input;
 import projects.mbti.domain.Member;
 
@@ -11,9 +12,11 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class InputRepository {
 
     private final EntityManager em;
+    @Transactional
 
     public void save(Input input) {em.persist(input);}
 

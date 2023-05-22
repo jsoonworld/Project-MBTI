@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import projects.mbti.domain.Input;
 import projects.mbti.service.InputService;
-import projects.mbti.service.MemberService;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -29,7 +29,7 @@ public class InputController {
 
         inputService.save(input);
 
-        return "/inputs/createInputEIForm";
+        return "redirect:/inputs/createInputEIForm";
     }
 
     @GetMapping("/inputs/createInputNSForm")
@@ -42,11 +42,11 @@ public class InputController {
     public String setMemberNSForm(InputForm form) {
 
         Input input = new Input();
-        input.setEI(form.getNS());
+        input.setNS(form.getNS());
 
         inputService.save(input);
 
-        return "/inputs/createInputFTForm";
+        return "/inputs/createInputNSForm";
     }
 
 

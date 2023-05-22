@@ -34,8 +34,10 @@ public class MemberController {
         member.setStudentId(form.getStudentId());
         member.setMajor(form.getMajor());
 
-        return "input/createInputEIForm";
-    }
+        memberService.join(member);
 
+
+        return  "redirect:/inputs/createInputEIForm";
+    }
 
 }
