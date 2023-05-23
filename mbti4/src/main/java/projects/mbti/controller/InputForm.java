@@ -7,7 +7,6 @@ import projects.mbti.domain.Member;
 
 public class InputForm {
 
-
     private String EI;
 
     private String NS;
